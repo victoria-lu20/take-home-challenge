@@ -1,38 +1,205 @@
-.App {
-  text-align: center;
+.page-wrapper {
+  width: 90%;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
+/* The food truck table */
+
+.table-wrapper {
+  overflow-x: auto;
+  padding: 0 24px 24px;
+  max-width: 100%;
+}
+
+.table-wrapper thead {
+  background-color: #f3f4f6;
+}
+
+.table-wrapper th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #4b5563;
+}
+
+.table-wrapper tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+.table-wrapper tbody tr:nth-child(even) {
+  background-color: #FAFAFA;
+}
+
+.table-wrapper td {
+  padding: 12px 16px;
+}
+
+.table-wrapper tbody tr {
+  height: 100px;
+}
+
+.table-wrapper thead tr {
+  white-space: nowrap;
+}
+
+.food-truck-table {
+  width: 100%;
+  table-layout: fixed;  
+  border-collapse: collapse;
+}
+
+.food-truck-table th:nth-child(3),
+.food-truck-table td:nth-child(3) { width: 35%; } 
+
+.food-truck-table th:first-child,
+.food-truck-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+/* Pagination controls  */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 8px;
+}
+
+.previous-button, .next-button {
+  flex: 1 1 48px;
+  max-width: 100px;
+  background-color: #FFA726;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.previous-button:disabled, .next-button:disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  opacity: 0.8;
+
+  cursor: not-allowed;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/** Search bar */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-input-container {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: #ffffff;
+  border-radius: 9999px;
+  padding: 4px;
+  max-width: 650px;
+  margin: 25px auto;
+  border: 1px black solid;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #FFA726;
   color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: white;
+  border-radius: 8px;
+  list-style: none;
+  padding: 4px 0;
+  width: max-content;
+  min-width: 120px;
+  z-index: 10;
+  border: 1px black solid;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropdown-item {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #FAFAFA;
+}
+
+.dropdown-item.selected {
+  font-weight: bold;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+  margin-left: 8px;
+}
+
+.search-input-wrapper input {
+  width: 80%;
+  padding: 8px 40px 8px 16px;
+  border: none;
+  border-radius: 9999px;
+}
+
+.search-input-wrapper input:focus {
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/** Filter toolbar */
+
+.status-filter-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 24px;
+}
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+.filter-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.truck-count {
+  margin-left: auto;
+  margin-right: 24px;
+  font-style: italic;
+}
+
+.loading,
+.error {
+  text-align: center;
+  margin: 32px auto;
+}
+
+.error {
+  color: red;
 }
