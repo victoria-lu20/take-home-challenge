@@ -95,5 +95,6 @@ npm test
 ### run the application
 
 ```
+npm install
 npm start
 ```
